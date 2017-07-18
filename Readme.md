@@ -9,7 +9,7 @@ This module lets you connect to web services using SOAP.  It also provides a ser
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Features](#features)
+- [Features:](#features)
 - [Install](#install)
 - [Why can't I file an issue?](#why-cant-i-file-an-issue)
 - [Where can I find help?](#where-can-i-find-help)
@@ -30,6 +30,7 @@ This module lets you connect to web services using SOAP.  It also provides a ser
   - [Client.setSecurity(security) - use the specified security protocol](#clientsetsecuritysecurity---use-the-specified-security-protocol)
   - [Client.*method*(args, callback) - call *method* on the SOAP service.](#clientmethodargs-callback---call-method-on-the-soap-service)
   - [Client.*service*.*port*.*method*(args, callback[, options[, extraHeaders]]) - call a *method* using a specific *service* and *port*](#clientserviceportmethodargs-callback-options-extraheaders---call-a-method-using-a-specific-service-and-port)
+  - [Overriding the namespace prefix](#overriding-the-namespace-prefix)
   - [Client.*lastRequest* - the property that contains last full soap request for client logging](#clientlastrequest---the-property-that-contains-last-full-soap-request-for-client-logging)
   - [Client.setEndpoint(url) - overwrite the SOAP service endpoint address](#clientsetendpointurl---overwrite-the-soap-service-endpoint-address)
   - [Client Events](#client-events)
@@ -40,7 +41,11 @@ This module lets you connect to web services using SOAP.  It also provides a ser
   - [WSSecurity](#wssecurity)
   - [WSSecurityCert](#wssecuritycert)
 - [Handling XML Attributes, Value and XML (wsdlOptions).](#handling-xml-attributes-value-and-xml-wsdloptions)
+  - [Overriding the `value` key](#overriding-the-value-key)
+  - [Overriding the `xml` key](#overriding-the-xml-key)
+  - [Overriding the `attributes` key](#overriding-the-attributes-key)
   - [Specifying the exact namespace definition of the root element](#specifying-the-exact-namespace-definition-of-the-root-element)
+  - [Custom Deserializer](#custom-deserializer)
 - [Handling "ignored" namespaces](#handling-ignored-namespaces)
 - [Handling "ignoreBaseNameSpaces" attribute](#handling-ignorebasenamespaces-attribute)
 - [soap-stub](#soap-stub)
