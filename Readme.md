@@ -400,9 +400,9 @@ The `args` argument allows you to supply arguments that generate an XML document
   client.MyFunctionAsync({name: 'value'}).then((result) => {
     // result is a javascript object
   })
+```
 
 The `args` argument allows you to supply arguments that generate an XML document inside of the SOAP Body section.
-```
 
 ##### Example with JSON for the `args`
 The example above uses `{name: 'value'}` as the args. This may generate a SOAP messages such as:
