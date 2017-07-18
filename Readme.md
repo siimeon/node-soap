@@ -113,6 +113,7 @@ This client has a built in WSDL cache. You can use the `disableCache` option to 
     console.log(result);
   });
 ```
+
 This client has a built in WSDL cache. You can use the `disableCache` option to disable it.
 
 #### Options
