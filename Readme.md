@@ -15,6 +15,7 @@ This module lets you connect to web services using SOAP.  It also provides a ser
 - [Where can I find help?](#where-can-i-find-help)
 - [Module](#module)
   - [soap.createClient(url[, options], callback) - create a new SOAP client from a WSDL url. Also supports a local filesystem path.](#soapcreateclienturl-options-callback---create-a-new-soap-client-from-a-wsdl-url-also-supports-a-local-filesystem-path)
+  - [soap.createClientAsync(url[, options]) - create a new SOAP client from a WSDL url. Also supports a local filesystem path.](#soapcreateclientasyncurl-options---create-a-new-soap-client-from-a-wsdl-url-also-supports-a-local-filesystem-path)
   - [soap.listen(*server*, *path*, *services*, *wsdl*) - create a new SOAP server that listens on *path* and provides *services*.](#soaplistenserver-path-services-wsdl---create-a-new-soap-server-that-listens-on-path-and-provides-services)
   - [Options](#options)
   - [Server Logging](#server-logging)
@@ -29,6 +30,7 @@ This module lets you connect to web services using SOAP.  It also provides a ser
   - [Client.describe() - description of services, ports and methods as a JavaScript object](#clientdescribe---description-of-services-ports-and-methods-as-a-javascript-object)
   - [Client.setSecurity(security) - use the specified security protocol](#clientsetsecuritysecurity---use-the-specified-security-protocol)
   - [Client.*method*(args, callback) - call *method* on the SOAP service.](#clientmethodargs-callback---call-method-on-the-soap-service)
+  - [Client.*method*Async(args) - call *method* on the SOAP service.](#clientmethodasyncargs---call-method-on-the-soap-service)
   - [Client.*service*.*port*.*method*(args, callback[, options[, extraHeaders]]) - call a *method* using a specific *service* and *port*](#clientserviceportmethodargs-callback-options-extraheaders---call-a-method-using-a-specific-service-and-port)
   - [Overriding the namespace prefix](#overriding-the-namespace-prefix)
   - [Client.*lastRequest* - the property that contains last full soap request for client logging](#clientlastrequest---the-property-that-contains-last-full-soap-request-for-client-logging)
@@ -95,6 +97,20 @@ If you're looking for professional help you can contact the maintainers through 
       client.MyFunction(args, function(err, result) {
           console.log(result);
       });
+  });
+```
+This client has a built in WSDL cache. You can use the `disableCache` option to disable it.
+
+### soap.createClientAsync(url[, options]) - create a new SOAP client from a WSDL url. Also supports a local filesystem path.
+
+``` javascript
+  var soap = require('soap');
+  var url = 'http://example.com/wsdl?wsdl';
+  var args = {name: 'value'};
+  soap.createClientAsync(url).then((client) => {
+    return client.MyFunctionAsync(args);
+  }).then((result) => {
+    console.log(result);
   });
 ```
 This client has a built in WSDL cache. You can use the `disableCache` option to disable it.
@@ -377,7 +393,15 @@ An instance of `Client` is passed to the `soap.createClient` callback.  It is us
 
 The `args` argument allows you to supply arguments that generate an XML document inside of the SOAP Body section.
 
+### Client.*method*Async(args) - call *method* on the SOAP service.
 
+``` javascript
+  client.MyFunction({name: 'value'}).then((result) => {
+    // result is a javascript object
+  })
+
+The `args` argument allows you to supply arguments that generate an XML document inside of the SOAP Body section.
+```
 
 ##### Example with JSON for the `args`
 The example above uses `{name: 'value'}` as the args. This may generate a SOAP messages such as:
