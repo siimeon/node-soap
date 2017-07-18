@@ -397,7 +397,7 @@ The `args` argument allows you to supply arguments that generate an XML document
 ### Client.*method*Async(args) - call *method* on the SOAP service.
 
 ``` javascript
-  client.MyFunction({name: 'value'}).then((result) => {
+  client.MyFunctionAsync({name: 'value'}).then((result) => {
     // result is a javascript object
   })
 
